@@ -8,7 +8,7 @@ from django.forms import (
     CheckboxInput,
 )
 
-from product.models import Variant, ProductVariantPrice
+from product.models import Variant, Product
 
 
 class VariantForm(ModelForm):
@@ -23,3 +23,13 @@ class VariantForm(ModelForm):
             ),
         }
 
+
+class ProductForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = "__all__"
+        widgets = {
+            "title": TextInput(attrs={"class": "form-control"}),
+            "sku": TextInput(attrs={"class": "form-control"}),
+            "description": Textarea(attrs={"class": "form-control"}),
+        }

@@ -16,7 +16,7 @@ class CreateProductView(generic.TemplateView):
 
 
 class ProductListView(generic.ListView):
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().order_by("-created_at")
     template_name = "products/list.html"
     context_object_name = "products"
     paginate_by = 10
