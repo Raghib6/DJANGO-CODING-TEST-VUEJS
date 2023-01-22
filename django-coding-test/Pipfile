@@ -8,8 +8,13 @@ django = "*"
 django-dotenv = "*"
 django-extensions = "*"
 djangorestframework = "*"
+django-filter = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

@@ -4,53 +4,21 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Products</h1>
 </div>
-
 <div class="card">
-  <form action="" method="get" class="card-header">
+  <form method="get" class="card-header">
     <div class="form-row justify-content-between">
-      <div class="col-md-2">
-        <input
-          type="text"
-          name="title"
-          placeholder="Product Title"
-          class="form-control"
-        />
-      </div>
-      <div class="col-md-2">
-        <select name="variant" id="" class="form-control">
-          <option selected disabled>--Select A Variant--</option>
-        </select>
-      </div>
-
+      <div class="col-md-2">{{form.title}}</div>
+      <div class="col-md-2">{{form.productvariant}}</div>
       <div class="col-md-3">
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">Price Range</span>
           </div>
-          <input
-            type="text"
-            name="price_from"
-            aria-label="First name"
-            placeholder="From"
-            class="form-control"
-          />
-          <input
-            type="text"
-            name="price_to"
-            aria-label="Last name"
-            placeholder="To"
-            class="form-control"
-          />
+          {{form.min_price}}
+          {{form.max_price}}
         </div>
       </div>
-      <div class="col-md-2">
-        <input
-          type="date"
-          name="date"
-          placeholder="Date"
-          class="form-control"
-        />
-      </div>
+      <div class="col-md-2">{{form.created_at}}</div>
       <div class="col-md-1">
         <button type="submit" class="btn btn-primary float-right">
           <i class="fa fa-search"></i>
@@ -58,7 +26,7 @@
       </div>
     </div>
   </form>
-
+  <form method="get"></form>
   <div class="card-body">
     <div class="table-response">
       <table class="table">
@@ -138,8 +106,7 @@
           class="btn btn-outline-primary"
           >&laquo;</a
         >
-        {% endif %} 
-        {% for page_number in page_obj.paginator.page_range %} 
+        {% endif %} {% for page_number in page_obj.paginator.page_range %} 
         {% if page_obj.number == page_number %}
         <button class="btn btn-outline-primary active">
           <span>{{ page_number }} <span class="sr-only">(current)</span></span>
@@ -148,9 +115,7 @@
         <a href="?page={{ page_number }}" class="btn btn-outline-primary">
           {{ page_number }}
         </a>
-        {% endif %} 
-        {% endfor %} 
-        {% if page_obj.has_next %}
+        {% endif %} {% endfor %} {% if page_obj.has_next %}
         <a
           href="?page={{ page_obj.next_page_number }}"
           class="btn btn-outline-primary"
