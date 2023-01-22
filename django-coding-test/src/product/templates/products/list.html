@@ -14,8 +14,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Price Range</span>
           </div>
-          {{form.min_price}}
-          {{form.max_price}}
+          {{form.min_price}} {{form.max_price}}
         </div>
       </div>
       <div class="col-md-2">{{form.created_at}}</div>
@@ -115,7 +114,9 @@
         <a href="?page={{ page_number }}" class="btn btn-outline-primary">
           {{ page_number }}
         </a>
-        {% endif %} {% endfor %} {% if page_obj.has_next %}
+        {% endif %} 
+        {% endfor %} 
+        {% if page_obj.has_next %}
         <a
           href="?page={{ page_obj.next_page_number }}"
           class="btn btn-outline-primary"
